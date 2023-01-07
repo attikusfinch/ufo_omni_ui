@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Omni UI</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="scripts/settings.js"></script>
+</head>
+
+<body>
+    <div class="navigation-bar">
+        <a href="./index.html">Главная</a>
+        <a class="active" href="./settings.html">Настройки</a>
+        <a href="./about.html">Автор</a>
+    </div>
+    <div class="main-content">
+        <img class="main-logo" src="design/images/settings.svg" height="200" width="400" />
+        <h2 class="main-title">OMNI SETTINGS</h2>
+        <div class="main-input-data">
+            <input id="user-field" type="text" class="Input-text" placeholder="Юзер" maxlength="255">
+            <input id="password-field" type="password" class="Input-text" placeholder="Пароль" maxlength="255">
+            <input id="ip-field" type="text" class="Input-text" placeholder="Ip адресс" maxlength="255">
+            <input id="port-field" value="9887" type="number" class="Input-text" placeholder="Порт" maxlength="5">
+            <button id="save-button" onclick="save_data()" class="submit-button" role="button">Сохранить</button>
+        </div>
+    </div>
+</body>
+
+</html>

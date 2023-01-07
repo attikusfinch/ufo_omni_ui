@@ -1,0 +1,203 @@
+.html {
+    background-color: #1c1a25
+}
+
+.main-content {
+    text-align: center;
+}
+
+.main-logo {
+    margin-top: 50px;
+    background-size: 20px 30px;
+}
+
+.main-title {
+    font-family: "Lucida Console", "Courier New", monospace;
+    margin-bottom: 20px;
+}
+
+.navigation-bar {
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+
+/* Style the links inside the navigation bar */
+
+.navigation-bar a {
+    float: left;
+    color: #333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 10px;
+}
+
+
+/* Change the color of links on hover */
+
+.navigation-bar a:hover {
+    background-color: #9fa7c2;
+    color: black;
+}
+
+
+/* Add a color to the active/current link */
+
+.navigation-bar a.active {
+    background-color: #535973;
+    color: white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+:root {
+    /* generic */
+    --gutterSm: 0.4rem;
+    --gutterMd: 0.8rem;
+    --gutterLg: 1.6rem;
+    --gutterXl: 2.4rem;
+    --gutterXx: 7.2rem;
+    --colorPrimary400: #ffffff;
+    --colorPrimary600: #b3b3b3;
+    --colorPrimary800: #787878;
+    --fontFamily: "Dosis", sans-serif;
+    --fontSizeSm: 1.2rem;
+    --fontSizeMd: 1.6rem;
+    --fontSizeLg: 2.1rem;
+    --fontSizeXl: 2.8rem;
+    --fontSizeXx: 3.6rem;
+    --lineHeightSm: 1.1;
+    --lineHeightMd: 1.8;
+    --transitionDuration: 300ms;
+    --transitionTF: cubic-bezier(0.645, 0.045, 0.355, 1);
+    /* floated labels */
+    --inputPaddingV: var(--gutterMd);
+    --inputPaddingH: var(--gutterLg);
+    --inputFontSize: var(--fontSizeLg);
+    --inputLineHeight: var(--lineHeightMd);
+    --labelScaleFactor: 0.8;
+    --labelDefaultPosY: 50%;
+    --labelTransformedPosY: calc( (var(--labelDefaultPosY)) - (var(--inputPaddingV) * var(--labelScaleFactor)) - (var(--inputFontSize) * var(--inputLineHeight)));
+    --inputTransitionDuration: var(--transitionDuration);
+    --inputTransitionTF: var(--transitionTF);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+.main-title {
+    color: #ffffff;
+}
+
+body {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #252839;
+    background-color: #252839;
+    font-family: var(--fontFamily);
+    font-size: var(--fontSizeMd);
+    line-height: var(--lineHeightMd);
+}
+
+.Wrapper {
+    flex: 0 0 80%;
+    max-width: 80%;
+}
+
+.Input {
+    position: relative;
+}
+
+.Input-text {
+    display: block;
+    margin-bottom: 10px;
+    padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--inputFontSize);
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    transition: box-shadow var(--transitionDuration);
+}
+
+.Input-text::placeholder {
+    color: #B0BEC5;
+}
+
+.Input-text:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem var(--colorPrimary600);
+}
+
+.Input-text:placeholder-shown+.Input-label {
+    visibility: hidden;
+    z-index: -1;
+}
+
+.Input-text:not(:placeholder-shown)+.Input-label,
+.Input-text:focus:not(:placeholder-shown)+.Input-label {
+    visibility: visible;
+    z-index: 1;
+    opacity: 1;
+    transform: translate3d(0, var(--labelTransformedPosY), 0) scale(var(--labelScaleFactor));
+    transition: transform var(--inputTransitionDuration), visibility 0ms, z-index 0ms;
+}
+
+
+/* CSS */
+
+.submit-button {
+    appearance: none;
+    background-color: #535973;
+    border: 2px solid #41465b;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+}
+
+.submit-button:disabled {
+    pointer-events: none;
+}
+
+.submit-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
