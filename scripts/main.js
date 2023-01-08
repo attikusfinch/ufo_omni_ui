@@ -10,6 +10,8 @@ function create_token() {
     var link_field = document.getElementById("input-link");
     var data_field = document.getElementById("input-data");
 
+    var tx_text = document.getElementById("tx_data");
+
     var user = get_data("user");
     var password = get_data("password");
     var ip = get_data("ip");
@@ -25,28 +27,6 @@ function create_token() {
         return;
     }
 
-    // fetch('/create_token', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             fromAddress: address_field.value,
-    //             ecosystem: 1,
-    //             type: 5,
-    //             previousId: 0,
-    //             category: category_field.value,
-    //             subcategory: subcategory_field.value,
-    //             name: name_field.value,
-    //             url: link_field.value,
-    //             data: data_field.value
-    //         })
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         alert(data)
-    //     });
-
     const request = new XMLHttpRequest();
 
     request.open('POST', 'http://localhost:4444/api/create_token');
@@ -60,14 +40,23 @@ function create_token() {
         subcategory: subcategory_field.value,
         name: name_field.value,
         url: link_field.value,
-        data: data_field.value
+        data: data_field.value,
+        user: user,
+        pass: password,
+        host: ip,
+        port: port
     }));
 
     request.onload = () => {
         if (request.status === 200) {
-            alert("Token created")
+            tx_text.textContent = get_json(request.response);
         } else {
-            alert('Error');
+            x_text.textContent = get_json(request.response);
         }
     }
+}
+
+function get_json(data) {
+    const obj = JSON.parse(data);
+    return obj.msg;
 }
