@@ -1,7 +1,10 @@
 function find_token() {
     var tx_field = document.getElementById("tx-field");
 
-    var tx_text = document.getElementById("tx_data");
+    var tx_name = document.getElementById("tx_name");
+    var tx_url = document.getElementById("tx_url");
+    var tx_amount = document.getElementById("tx_amount");
+
     var nft_image = document.getElementById("nft_image");
 
     var user = get_data("user");
@@ -33,9 +36,11 @@ function find_token() {
 
     request.onload = () => {
         if (request.status === 200) {
-            const link = get_json(request.response);
-            tx_text.textContent = link;
-            nft_image.src = link;
+            const response = get_json(request.response);
+            tx_name.textContent = "Название: " + response.name;
+            tx_url.textContent = "Ссылка: " + response.url;
+            tx_amount.textContent = "Количество: " + response.amount;
+            nft_image.src = response.url;
         } else {
             x_text.textContent = get_json(request.response);
         }
@@ -48,5 +53,5 @@ function get_data(name) {
 
 function get_json(data) {
     const obj = JSON.parse(data);
-    return obj.msg;
+    return obj;
 }

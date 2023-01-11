@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Omni UI</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="scripts/utils.js"></script>
+</head>
+
+<body style="overflow-y:scroll;">
+    <div class="navigation-bar">
+        <a href="./index.html">Главная</a>
+        <a href="./nftcreator.html">NFT</a>
+        <a class="active">TOKEN</a>
+    </div>
+    <div class="main-content">
+        <img class="main-logo" src="design/images/wallet.svg" height="200" width="400" />
+        <h2 class="main-title">OMNI TOKEN CREATOR</h2>
+        <div class="main-input-data">
+            <input type="text" id="input-address" class="Input-text" placeholder="Адрес кошелька" maxlength="255">
+            <input type="text" id="input-name" class="Input-text" placeholder="Название токена" maxlength="255">
+            <input type="text" id="input-category" class="Input-text" placeholder="Название категории" maxlength="255">
+            <input type="text" id="input-subcategory" class="Input-text" placeholder="Название саб-категории" maxlength="255">
+            <input type="text" id="input-link" class="Input-text" placeholder="Ссылка" maxlength="255">
+            <input type="text" id="input-data" class="Input-text" placeholder="Любой текст" maxlength="255">
+            <input type="number" id="input-count" class="Input-text" placeholder="Количество">
+            <div class="switch-button">
+                <input id="division-switch" class="switch-button-checkbox" type="checkbox"></input>
+                <label class="switch-button-label" for=""><span class="switch-button-label-span">Неделимый</span></label>
+            </div>
+            <button onclick="create_token()" id="submit-button" class="submit-button" role="button">Создать</button>
+            <p class="main-title" id="tx_data"></p>
+        </div>
+    </div>
+</body>
+
+</html>
